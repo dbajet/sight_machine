@@ -202,7 +202,7 @@ class TestBinaryLogger(unittest.TestCase):
                     instance.idx = i
                     tested.write(instance)
             end_time = monotonic()
-            self.assertGreater(base_time * 15, end_time - start_time)
+            self.assertGreater(base_time * 20, end_time - start_time)
 
             count = 0
             for entry in tested.read(HelperBinaryLoggable1):
