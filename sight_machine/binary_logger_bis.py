@@ -13,6 +13,11 @@ class BinaryLoggerBis:
     PIPE = b'|'
 
     def __init__(self, file_path: str):
+        """
+        The file starts first with the name of the class of the logged instances.
+        This name is defined with the very first instance.
+        Then each entry is appended following the format: size of the serialized instance | serialized instance
+        """
         if not os.path.exists(file_path):
             with open(file_path, 'wb+') as f:
                 f.write(b'')
@@ -85,7 +90,7 @@ class BinaryLoggerBis:
     @staticmethod
     def file_for(binary_loggable_clazz: Type[BinaryLoggable], directory: str) -> str:
         """
-        Retrieve the log file for the specified BinaryLoggable class.
+        Retrieve the log file for the specified BinaryLoggable class within a provided directory
         If the file doesn't exist, a random name is returned
         """
         if not (os.path.exists(directory) and os.path.isdir(directory)):
