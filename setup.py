@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='sight_machine',
-    version='0.4',
+    version='0.5',
     author="Denis Bajet",
     author_email="dbajet@gmail.com",
     description='Simple binary logger',
