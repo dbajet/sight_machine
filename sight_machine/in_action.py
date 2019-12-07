@@ -54,3 +54,6 @@ with BinaryLoggerBis(filename) as bl:
     for entry in bl.read(HelperBinaryLoggable1):
         assert isinstance(entry, HelperBinaryLoggable1)
         print(entry.me, entry.idx, entry.now)
+
+for kla in [HelperBinaryLoggable1, HelperBinaryLoggable2]:
+    print(f"The log file for {kla.__name__} is {BinaryLoggerBis.file_for(kla, '/tmp/')} ")
